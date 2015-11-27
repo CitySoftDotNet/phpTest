@@ -16,28 +16,42 @@
 
 <div class="container">
   <div class="jumbotron">
-    <h1 data-bind="text: businessName">businessName</h1>
-    <p data-bind="text: businessAddress">businessAddress</p> 
-    <p data-bind="text: businessPhone">businessPhone</p> 
-    <p data-bind="text: totalAvgRating">totalAvgRating</p> 
-    <p data-bind="text: totalNumberOfReviews">totalNumberOfReviews</p> 
-    <p data-bind="text: externalUrl">externalUrl</p> 
-    <p data-bind="text: externalPageUrl">externalPageUrl</p> 
+    <h2 data-bind="text: businessName">businessName</h2>
+    <p><span data-bind="html: businessAddress">businessAddress</span></p> 
+    <p>Phone: <span data-bind="text: businessPhone">businessPhone</span></p> 
+    <p>Average Rating: <strong data-bind="text: totalAvgRating">totalAvgRating</strong> | 
+       <a data-bind="attr: { href: externalUrl }" target="_blank">review my business</a></p>
+    <p><a data-bind="attr: { href: externalPageUrl }" target="_blank">business website</a></p> 
   </div>
-  <div class="row" data-bind="foreach: customerReviews">
-    <div class="col-sm-4">
-      <h3 data-bind="text: customer_name">customer_name</h3>
-      <p data-bind="text: date_of_submission">date_of_submission</p>
-      <p data-bind="text: customer_last_name">customer_last_name</p>
-      <p data-bind="text: description">description</p>
-      <p data-bind="text: rating">rating</p>
-      <p data-bind="text: review_from">review_from</p>
-      <p data-bind="text: review_url">review_url</p>
-      <p data-bind="text: review_id">review_id</p>
-      <p data-bind="text: customer_url">customer_url</p>
-      <p data-bind="text: review_source">review_source</p>
+  <div class="row greyBackground"> 
+	<div class="col-md-8">     
+		<div class="col-md-2">
+        	<a href="#" class="size20">&laquo;</a> 
+        </div>
+		<div class="col-md-4 size20">
+        	51 - 60 out of <span data-bind="text: totalNumberOfReviews">totalNumberOfReviews</span> 
+        </div>
+		<div class="col-md-2">
+        	<a href="#" class="size20">&raquo;</a> 
+        </div>
     </div>
   </div>
+
+  <div class="row" data-bind="foreach: customerReviews"> 
+	<div class="col-md-8">     
+		<div class="col-md-2">
+        	<span  data-bind="foreach: ko.utils.range(1, rating)">★ </span>
+        </div>    
+		<div class="col-md-2"><a data-bind="text: review_source, attr: { href: customer_url }" target="_blank"></a></div>
+		<div class="col-md-3" data-bind="text: date_of_submission">date_of_submission</div>
+    </div> 
+    <div class="col-md-8"><h4><span data-bind="text: customer_name">customer_name</span> <span data-bind="text: customer_last_name">customer_last_name</span></h4></div> 
+    <div class="col-md-8" data-bind="text: description">description</div> 
+    <div class="col-md-8"><a data-bind="attr: { href: customer_url }" target="_blank">customer website</a></div> 
+    <div class="col-md-12"><hr /></div>
+    
+  </div>
+  
 </div>
 
 </body>

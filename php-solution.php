@@ -49,7 +49,7 @@ if ($lastRecordCount > $totalNumberOfReviews)
     <h2><?php echo $businessInformation->business_name ?></h2>
     <p><?php echo $businessInformation->business_address ?></p> 
     <p>Phone: <?php echo $businessInformation->business_phone ?></p> 
-    <p>Average Rating: <?php echo $businessInformation->total_rating->total_avg_rating ?> | 
+    <p>Average Rating: <strong><?php echo $businessInformation->total_rating->total_avg_rating ?></strong> | 
        <a href="<?php echo $businessInformation->external_url ?>" target="_blank">review my business</a></p>
     <p><a href="<?php echo $businessInformation->external_page_url ?>" target="_blank">business website</a></p> 
   </div>

@@ -10,7 +10,7 @@ function BusinessReviewManager() {
     self.externalUrl = ko.observable();
     self.externalPageUrl = ko.observable();
 	
-    self.customerReviews = ko.observableArray([]);
+	self.customerReviews = ko.observableArray([]);
 	
 	self.initialize();
 }
@@ -55,8 +55,6 @@ BusinessReviewManager.prototype.updateBusinessInformation = function (result) {
     self.externalPageUrl(result.business_info.external_page_url);
 
 	self.customerReviews(result.reviews);
-	
-	//alert(self.customerReviews);
 };
 
 $(document).ready(function() {
